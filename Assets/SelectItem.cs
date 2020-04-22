@@ -22,7 +22,7 @@ public class SelectItem : MonoBehaviour {
 
         Vector3 cameraDirection = transform.forward;
 
-        if (!_isTriggered && Vector3.Dot(cameraDirection, headsetDirection) > 0.95) {
+        if (!_isTriggered && Vector3.Dot(cameraDirection, headsetDirection) > 0.97) {
             _headsetTriggerTimer += Time.deltaTime;
             headsetTriggerIcon.fillAmount = _headsetTriggerTimer / triggerDuration;
             if (_headsetTriggerTimer > triggerDuration) {
@@ -36,7 +36,7 @@ public class SelectItem : MonoBehaviour {
             headsetTriggerIcon.fillAmount = 0;
         }
 
-        if (!_isTriggered && Vector3.Dot(cameraDirection, photoDirection) > 0.95) {
+        if (!_isTriggered && Vector3.Dot(cameraDirection, photoDirection) > 0.97) {
             _photoTriggerTimer += Time.deltaTime;
             photoTriggerIcon.fillAmount = _photoTriggerTimer / triggerDuration;
             if (_photoTriggerTimer > triggerDuration) {
