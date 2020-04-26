@@ -385,6 +385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerDuration: 2
   activeDuration: 10
+  needToBeDisabled: 0
   photoDirection: {x: 0.8, y: -0.6, z: 0.3}
   photoTriggerIcon: {fileID: 617679582}
   photoTriggerImage: {fileID: 1441364142}
@@ -1034,6 +1035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e256ea255d38c42948fb65d0e801556b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vrCamera: {fileID: 2112298156}
 --- !u!1 &1924971966
 GameObject:
   m_ObjectHideFlags: 0
@@ -1209,6 +1211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerDuration: 2
   activeDuration: 10
+  needToBeDisabled: 0
   photoDirection: {x: 0.8, y: -0.6, z: 0.3}
   photoTriggerIcon: {fileID: 617679582}
   photoTriggerImage: {fileID: 1441364142}

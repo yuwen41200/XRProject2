@@ -2,11 +2,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SelectItem : MonoBehaviour {
+public class SelectItem1 : MonoBehaviour {
 
     public float triggerDuration = 2;
     public float activeDuration = 10;
     private bool _isTriggered;
+    public bool needToBeDisabled; // TODO
 
     public Vector3 photoDirection = new Vector3(0.8f, -0.6f, 0.3f);
     public Image photoTriggerIcon;
