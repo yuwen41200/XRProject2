@@ -2,12 +2,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SelectItem1 : MonoBehaviour {
+public class SelectItem3 : MonoBehaviour {
 
     public float triggerDuration = 2;
     public float activeDuration = 10;
     private bool _isTriggered;
-    public bool goToScene2;
+    public bool goToScene6A;
+    public bool goToScene6B;
 
     public Vector3 photoDirection = new Vector3(0.8f, -0.6f, 0.3f);
     public GameObject photoCanvas;
@@ -32,7 +33,7 @@ public class SelectItem1 : MonoBehaviour {
                 // headsetTriggerImage.SetActive(true);
                 _isTriggered = true;
                 // StartCoroutine(WaitAndDeactivate(headsetTriggerImage));
-                goToScene2 = true;
+                goToScene6A = true;
             }
         }
         else {
@@ -68,7 +69,8 @@ public class SelectItem1 : MonoBehaviour {
         _photoTriggerTimer = 0;
         _headsetTriggerTimer = 0;
         _isTriggered = false;
-        goToScene2 = false;
+        goToScene6A = false;
+        goToScene6B = false;
     }
 
     private void OnDisable() {

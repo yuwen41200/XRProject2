@@ -385,11 +385,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerDuration: 2
   activeDuration: 10
-  needToBeDisabled: 0
+  goToScene2: 0
   photoDirection: {x: 0.8, y: -0.6, z: 0.3}
+  photoCanvas: {fileID: 2053110417}
   photoTriggerIcon: {fileID: 617679582}
   photoTriggerImage: {fileID: 1441364142}
   headsetDirection: {x: 0.9, y: -0.4, z: -0.1}
+  headsetCanvas: {fileID: 977741233}
   headsetTriggerIcon: {fileID: 745635192}
   headsetTriggerImage: {fileID: 1924971966}
 --- !u!1 &745635190
@@ -564,7 +566,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &977741234
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1036,6 +1038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vrCamera: {fileID: 2112298156}
+  storyVideos: []
 --- !u!1 &1924971966
 GameObject:
   m_ObjectHideFlags: 0
@@ -1126,7 +1129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2053110418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1211,11 +1214,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerDuration: 2
   activeDuration: 10
-  needToBeDisabled: 0
+  goToScene2: 0
   photoDirection: {x: 0.8, y: -0.6, z: 0.3}
+  photoCanvas: {fileID: 2053110417}
   photoTriggerIcon: {fileID: 617679582}
   photoTriggerImage: {fileID: 1441364142}
   headsetDirection: {x: 0.9, y: -0.4, z: -0.1}
+  headsetCanvas: {fileID: 977741233}
   headsetTriggerIcon: {fileID: 745635192}
   headsetTriggerImage: {fileID: 1924971966}
 --- !u!114 &2112298158
