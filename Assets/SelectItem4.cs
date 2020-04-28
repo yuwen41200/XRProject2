@@ -1,82 +1,65 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class SelectItem4 : MonoBehaviour {
 
     public float triggerDuration = 2;
-    public float activeDuration = 10;
     private bool _isTriggered;
     public bool goToTitle;
     public bool goToInteraction3;
 
-    public Vector3 photoDirection = new Vector3(0.8f, -0.6f, 0.3f);
-    public GameObject photoCanvas;
-    public Image photoTriggerIcon;
-    private float _photoTriggerTimer;
-    public GameObject photoTriggerImage;
+    public Vector3 titleDirection = new Vector3(0.8f, -0.6f, 0.3f);
+    public GameObject titleCanvas;
+    public Image titleTriggerIcon;
+    private float _titleTriggerTimer;
 
-    public Vector3 headsetDirection = new Vector3(0.9f, -0.4f, -0.1f);
-    public GameObject headsetCanvas;
-    public Image headsetTriggerIcon;
-    private float _headsetTriggerTimer;
-    public GameObject headsetTriggerImage;
+    public Vector3 interaction3Direction = new Vector3(0.9f, -0.4f, -0.1f);
+    public GameObject interaction3Canvas;
+    public Image interaction3TriggerIcon;
+    private float _interaction3TriggerTimer;
 
     private void Update() {
 
         Vector3 cameraDirection = transform.forward;
 
-        if (!_isTriggered && Vector3.Dot(cameraDirection, headsetDirection) > 0.97) {
-            _headsetTriggerTimer += Time.deltaTime;
-            headsetTriggerIcon.fillAmount = _headsetTriggerTimer / triggerDuration;
-            if (_headsetTriggerTimer > triggerDuration) {
-                // headsetTriggerImage.SetActive(true);
+        if (!_isTriggered && Vector3.Dot(cameraDirection, titleDirection) > 0.97) {
+            _titleTriggerTimer += Time.deltaTime;
+            titleTriggerIcon.fillAmount = _titleTriggerTimer / triggerDuration;
+            if (_titleTriggerTimer > triggerDuration) {
                 _isTriggered = true;
-                // StartCoroutine(WaitAndDeactivate(headsetTriggerImage));
                 goToTitle = true;
             }
         }
         else {
-            _headsetTriggerTimer = 0;
-            headsetTriggerIcon.fillAmount = 0;
+            _titleTriggerTimer = 0;
+            titleTriggerIcon.fillAmount = 0;
         }
 
-        if (!_isTriggered && Vector3.Dot(cameraDirection, photoDirection) > 0.97) {
-            _photoTriggerTimer += Time.deltaTime;
-            photoTriggerIcon.fillAmount = _photoTriggerTimer / triggerDuration;
-            if (_photoTriggerTimer > triggerDuration) {
-                photoTriggerImage.SetActive(true);
+        if (!_isTriggered && Vector3.Dot(cameraDirection, interaction3Direction) > 0.97) {
+            _interaction3TriggerTimer += Time.deltaTime;
+            interaction3TriggerIcon.fillAmount = _interaction3TriggerTimer / triggerDuration;
+            if (_interaction3TriggerTimer > triggerDuration) {
                 _isTriggered = true;
-                StartCoroutine(WaitAndDeactivate(photoTriggerImage));
+                goToInteraction3 = true;
             }
         }
         else {
-            _photoTriggerTimer = 0;
-            photoTriggerIcon.fillAmount = 0;
+            _interaction3TriggerTimer = 0;
+            interaction3TriggerIcon.fillAmount = 0;
         }
 
     }
 
-    private IEnumerator WaitAndDeactivate(GameObject triggerImage) {
-        yield return new WaitForSeconds(activeDuration);
-        triggerImage.SetActive(false);
-        _isTriggered = false;
-    }
-
     private void OnEnable() {
-        photoCanvas.SetActive(true);
-        headsetCanvas.SetActive(true);
+        titleCanvas.SetActive(true);
+        interaction3Canvas.SetActive(true);
     }
 
     private void OnDisable() {
-        photoCanvas.SetActive(false);
-        headsetCanvas.SetActive(false);
-        if (photoTriggerImage.activeSelf)
-            photoTriggerImage.SetActive(false);
-        if (headsetTriggerImage.activeSelf)
-            headsetTriggerImage.SetActive(false);
-        _photoTriggerTimer = 0;
-        _headsetTriggerTimer = 0;
+        titleCanvas.SetActive(false);
+        interaction3Canvas.SetActive(false);
+        _titleTriggerTimer = 0;
+        _interaction3TriggerTimer = 0;
         _isTriggered = false;
         goToTitle = false;
         goToInteraction3 = false;
