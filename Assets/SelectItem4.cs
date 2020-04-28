@@ -66,11 +66,6 @@ public class SelectItem4 : MonoBehaviour {
     private void OnEnable() {
         photoCanvas.SetActive(true);
         headsetCanvas.SetActive(true);
-        _photoTriggerTimer = 0;
-        _headsetTriggerTimer = 0;
-        _isTriggered = false;
-        goToTitle = false;
-        goToInteraction3 = false;
     }
 
     private void OnDisable() {
@@ -80,6 +75,11 @@ public class SelectItem4 : MonoBehaviour {
             photoTriggerImage.SetActive(false);
         if (headsetTriggerImage.activeSelf)
             headsetTriggerImage.SetActive(false);
+        _photoTriggerTimer = 0;
+        _headsetTriggerTimer = 0;
+        _isTriggered = false;
+        goToTitle = false;
+        goToInteraction3 = false;
     }
 
 }

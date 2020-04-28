@@ -134,6 +134,7 @@ public class StoryManager : MonoBehaviour {
                     _videoPlayer.isLooping = false;
                     _videoPlayer.loopPointReached += EndReached;
                     _videoPlayer.Play();
+                    _scene4A4B4CHaveBeenPlayed = 0;
                 }
                 break;
 

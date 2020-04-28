@@ -942,7 +942,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vrCamera: {fileID: 2112298156}
   storyVideos:
-  - {fileID: 32900000, guid: 667bb76ece53f4f909dd7c145a226435, type: 3}
+  - {fileID: 32900000, guid: bf8b0de92b52e4dc59881e041c54748b, type: 3}
+  - {fileID: 32900000, guid: 6bc41e76d89084ea0b452145ee7efa4a, type: 3}
+  - {fileID: 32900000, guid: cfcae3338411c432ab5cf9a782131813, type: 3}
+  - {fileID: 32900000, guid: 8323a2de561d749749440693c2fbc84d, type: 3}
+  - {fileID: 32900000, guid: fe1dfa7fd38df4407aee94b5f840b14c, type: 3}
+  - {fileID: 32900000, guid: 22c5cbe61b2154b75a0d55e9cb9b4203, type: 3}
+  - {fileID: 32900000, guid: 631458fb8b74a480ea188564fcaf2830, type: 3}
+  - {fileID: 32900000, guid: 08920dcb6b93a4803bb26cfa30b5c6fd, type: 3}
+  - {fileID: 32900000, guid: ceffe9eddc71d4a15b99b9ae38d6f6fb, type: 3}
+  - {fileID: 32900000, guid: be73dff86fb134e7fa841967e2b7e59b, type: 3}
+  - {fileID: 32900000, guid: f8a1a880662d5495db14af0ed6781a57, type: 3}
+  - {fileID: 32900000, guid: d222c7b0635c6428ab86ea2a9a48cb8a, type: 3}
+  - {fileID: 32900000, guid: 03cb9ec9532cc4e9cbc7de4b9a2a19ae, type: 3}
+  - {fileID: 32900000, guid: bd90301b4e15d4a5d8ef6539c2b81c01, type: 3}
 --- !u!1 &1924971966
 GameObject:
   m_ObjectHideFlags: 0
