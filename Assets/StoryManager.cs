@@ -10,6 +10,7 @@ public enum StoryState {
 public class StoryManager : MonoBehaviour {
 
     public GameObject vrCamera;
+    public GameObject debugCamera;
     private StoryState _storyState;
     private VideoPlayer _videoPlayer;
     private bool _videoEnded;
@@ -21,6 +22,7 @@ public class StoryManager : MonoBehaviour {
     private byte _scene4A4B4CHaveBeenPlayed;
 
     private void Awake() {
+        if (!vrCamera.activeInHierarchy) vrCamera = debugCamera;
         _videoPlayer = GetComponent<VideoPlayer>();
         _selectItem1 = vrCamera.GetComponent<SelectItem1>();
         _selectItem2 = vrCamera.GetComponent<SelectItem2>();
