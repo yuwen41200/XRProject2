@@ -8,6 +8,8 @@ public class SelectItem1 : MonoBehaviour {
     public float activeDuration = 10;
     private bool _isTriggered;
     public bool goToScene2;
+    public GameObject blackScreen;
+    private Image _blackScreenImage;
 
     public Vector3 photoDirection = new Vector3(0.8f, -0.6f, 0.3f);
     public GameObject photoCanvas;
@@ -29,10 +31,7 @@ public class SelectItem1 : MonoBehaviour {
             _headsetTriggerTimer += Time.deltaTime;
             headsetTriggerIcon.fillAmount = _headsetTriggerTimer / triggerDuration;
             if (_headsetTriggerTimer > triggerDuration) {
-                // headsetTriggerImage.SetActive(true);
-                _isTriggered = true;
-                // StartCoroutine(WaitAndDeactivate(headsetTriggerImage));
-                goToScene2 = true;
+                StartCoroutine(FadeOut());
             }
         }
         else {
@@ -62,18 +61,42 @@ public class SelectItem1 : MonoBehaviour {
         _isTriggered = false;
     }
 
-    private void OnEnable() {
+    private IEnumerator FadeIn() {
+        _isTriggered = true;
+        for (var alpha = 1f; alpha >= 0; alpha -= 0.025f) {
+            var newColor = _blackScreenImage.color;
+            newColor.a = alpha;
+            _blackScreenImage.color = newColor;
+            yield return new WaitForSeconds(0.1f);
+        }
         photoCanvas.SetActive(true);
         headsetCanvas.SetActive(true);
+        _isTriggered = false;
+    }
+
+    private IEnumerator FadeOut() {
+        _isTriggered = true;
+        if (photoCanvas) photoCanvas.SetActive(false);
+        if (headsetCanvas) headsetCanvas.SetActive(false);
+        for (var alpha = 0f; alpha <= 1; alpha += 0.025f) {
+            var newColor = _blackScreenImage.color;
+            newColor.a = alpha;
+            _blackScreenImage.color = newColor;
+            yield return new WaitForSeconds(0.1f);
+        }
+        goToScene2 = true;
+    }
+
+    private void OnEnable() {
+        _blackScreenImage = blackScreen.GetComponent<Image>();
+        StartCoroutine(FadeIn());
     }
 
     private void OnDisable() {
-        if (photoCanvas) photoCanvas.SetActive(false);
-        if (headsetCanvas) headsetCanvas.SetActive(false);
-        if (photoTriggerImage.activeSelf)
-            photoTriggerImage.SetActive(false);
-        if (headsetTriggerImage.activeSelf)
-            headsetTriggerImage.SetActive(false);
+        StopAllCoroutines();
+        var resetColor = _blackScreenImage.color;
+        resetColor.a = 0;
+        _blackScreenImage.color = resetColor;
         _photoTriggerTimer = 0;
         _headsetTriggerTimer = 0;
         _isTriggered = false;

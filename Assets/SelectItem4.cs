@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class SelectItem4 : MonoBehaviour {
@@ -7,6 +8,8 @@ public class SelectItem4 : MonoBehaviour {
     private bool _isTriggered;
     public bool goToTitle;
     public bool goToInteraction3;
+    public GameObject blackScreen;
+    private Image _blackScreenImage;
 
     public Vector3 titleDirection = new Vector3(0.8f, -0.6f, 0.3f);
     public GameObject titleCanvas;
@@ -26,8 +29,7 @@ public class SelectItem4 : MonoBehaviour {
             _titleTriggerTimer += Time.deltaTime;
             titleTriggerIcon.fillAmount = _titleTriggerTimer / triggerDuration;
             if (_titleTriggerTimer > triggerDuration) {
-                _isTriggered = true;
-                goToTitle = true;
+                StartCoroutine(FadeOut("goToTitle"));
             }
         }
         else {
@@ -39,8 +41,7 @@ public class SelectItem4 : MonoBehaviour {
             _interaction3TriggerTimer += Time.deltaTime;
             interaction3TriggerIcon.fillAmount = _interaction3TriggerTimer / triggerDuration;
             if (_interaction3TriggerTimer > triggerDuration) {
-                _isTriggered = true;
-                goToInteraction3 = true;
+                StartCoroutine(FadeOut("goToInteraction3"));
             }
         }
         else {
@@ -50,14 +51,43 @@ public class SelectItem4 : MonoBehaviour {
 
     }
 
-    private void OnEnable() {
+    private IEnumerator FadeIn() {
+        _isTriggered = true;
+        for (var alpha = 1f; alpha >= 0; alpha -= 0.025f) {
+            var newColor = _blackScreenImage.color;
+            newColor.a = alpha;
+            _blackScreenImage.color = newColor;
+            yield return new WaitForSeconds(0.1f);
+        }
         titleCanvas.SetActive(true);
         interaction3Canvas.SetActive(true);
+        _isTriggered = false;
+    }
+
+    private IEnumerator FadeOut(string goToX) {
+        _isTriggered = true;
+        if (titleCanvas) titleCanvas.SetActive(false);
+        if (interaction3Canvas) interaction3Canvas.SetActive(false);
+        for (var alpha = 0f; alpha <= 1; alpha += 0.025f) {
+            var newColor = _blackScreenImage.color;
+            newColor.a = alpha;
+            _blackScreenImage.color = newColor;
+            yield return new WaitForSeconds(0.1f);
+        }
+        if (goToX == "goToTitle") goToTitle = true;
+        else if (goToX == "goToInteraction3") goToInteraction3 = true;
+    }
+
+    private void OnEnable() {
+        _blackScreenImage = blackScreen.GetComponent<Image>();
+        StartCoroutine(FadeIn());
     }
 
     private void OnDisable() {
-        if (titleCanvas) titleCanvas.SetActive(false);
-        if (interaction3Canvas) interaction3Canvas.SetActive(false);
+        StopAllCoroutines();
+        var resetColor = _blackScreenImage.color;
+        resetColor.a = 0;
+        _blackScreenImage.color = resetColor;
         _titleTriggerTimer = 0;
         _interaction3TriggerTimer = 0;
         _isTriggered = false;

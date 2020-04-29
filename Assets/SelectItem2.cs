@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class SelectItem2 : MonoBehaviour {
@@ -8,6 +9,8 @@ public class SelectItem2 : MonoBehaviour {
     public bool goToScene4A;
     public bool goToScene4B;
     public bool goToScene4C;
+    public GameObject blackScreen;
+    private Image _blackScreenImage;
 
     public Vector3 scene4ADirection = new Vector3(0.8f, -0.6f, 0.3f);
     public GameObject scene4ACanvas;
@@ -32,8 +35,7 @@ public class SelectItem2 : MonoBehaviour {
             _scene4ATriggerTimer += Time.deltaTime;
             scene4ATriggerIcon.fillAmount = _scene4ATriggerTimer / triggerDuration;
             if (_scene4ATriggerTimer > triggerDuration) {
-                _isTriggered = true;
-                goToScene4A = true;
+                StartCoroutine(FadeOut("goToScene4A"));
             }
         }
         else {
@@ -45,8 +47,7 @@ public class SelectItem2 : MonoBehaviour {
             _scene4BTriggerTimer += Time.deltaTime;
             scene4BTriggerIcon.fillAmount = _scene4BTriggerTimer / triggerDuration;
             if (_scene4BTriggerTimer > triggerDuration) {
-                _isTriggered = true;
-                goToScene4B = true;
+                StartCoroutine(FadeOut("goToScene4B"));
             }
         }
         else {
@@ -58,8 +59,7 @@ public class SelectItem2 : MonoBehaviour {
             _scene4CTriggerTimer += Time.deltaTime;
             scene4CTriggerIcon.fillAmount = _scene4CTriggerTimer / triggerDuration;
             if (_scene4CTriggerTimer > triggerDuration) {
-                _isTriggered = true;
-                goToScene4C = true;
+                StartCoroutine(FadeOut("goToScene4C"));
             }
         }
         else {
@@ -69,16 +69,46 @@ public class SelectItem2 : MonoBehaviour {
 
     }
 
-    private void OnEnable() {
+    private IEnumerator FadeIn() {
+        _isTriggered = true;
+        for (var alpha = 1f; alpha >= 0; alpha -= 0.025f) {
+            var newColor = _blackScreenImage.color;
+            newColor.a = alpha;
+            _blackScreenImage.color = newColor;
+            yield return new WaitForSeconds(0.1f);
+        }
         scene4ACanvas.SetActive(true);
         scene4BCanvas.SetActive(true);
         scene4CCanvas.SetActive(true);
+        _isTriggered = false;
     }
 
-    private void OnDisable() {
+    private IEnumerator FadeOut(string goToX) {
+        _isTriggered = true;
         if (scene4ACanvas) scene4ACanvas.SetActive(false);
         if (scene4BCanvas) scene4BCanvas.SetActive(false);
         if (scene4CCanvas) scene4CCanvas.SetActive(false);
+        for (var alpha = 0f; alpha <= 1; alpha += 0.025f) {
+            var newColor = _blackScreenImage.color;
+            newColor.a = alpha;
+            _blackScreenImage.color = newColor;
+            yield return new WaitForSeconds(0.1f);
+        }
+        if (goToX == "goToScene4A") goToScene4A = true;
+        else if (goToX == "goToScene4B") goToScene4B = true;
+        else if (goToX == "goToScene4C") goToScene4C = true;
+    }
+
+    private void OnEnable() {
+        _blackScreenImage = blackScreen.GetComponent<Image>();
+        StartCoroutine(FadeIn());
+    }
+
+    private void OnDisable() {
+        StopAllCoroutines();
+        var resetColor = _blackScreenImage.color;
+        resetColor.a = 0;
+        _blackScreenImage.color = resetColor;
         _scene4ATriggerTimer = 0;
         _scene4BTriggerTimer = 0;
         _scene4CTriggerTimer = 0;
