@@ -59,11 +59,11 @@ sysinfo.txt
 crashlytics-build.properties
 
 # Multimedia files
-*.png
-*.mp3
-*.mp4
-*.psd
-*.kra
+# *.png
+# *.mp3
+# *.mp4
+# *.psd
+# *.kra
 
 # macOS system file
 .DS_Store
