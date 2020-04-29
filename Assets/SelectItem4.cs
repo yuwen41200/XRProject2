@@ -56,8 +56,8 @@ public class SelectItem4 : MonoBehaviour {
     }
 
     private void OnDisable() {
-        titleCanvas.SetActive(false);
-        interaction3Canvas.SetActive(false);
+        if (titleCanvas) titleCanvas.SetActive(false);
+        if (interaction3Canvas) interaction3Canvas.SetActive(false);
         _titleTriggerTimer = 0;
         _interaction3TriggerTimer = 0;
         _isTriggered = false;

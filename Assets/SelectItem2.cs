@@ -76,9 +76,9 @@ public class SelectItem2 : MonoBehaviour {
     }
 
     private void OnDisable() {
-        scene4ACanvas.SetActive(false);
-        scene4BCanvas.SetActive(false);
-        scene4CCanvas.SetActive(false);
+        if (scene4ACanvas) scene4ACanvas.SetActive(false);
+        if (scene4BCanvas) scene4BCanvas.SetActive(false);
+        if (scene4CCanvas) scene4CCanvas.SetActive(false);
         _scene4ATriggerTimer = 0;
         _scene4BTriggerTimer = 0;
         _scene4CTriggerTimer = 0;

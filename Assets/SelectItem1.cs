@@ -68,8 +68,8 @@ public class SelectItem1 : MonoBehaviour {
     }
 
     private void OnDisable() {
-        photoCanvas.SetActive(false);
-        headsetCanvas.SetActive(false);
+        if (photoCanvas) photoCanvas.SetActive(false);
+        if (headsetCanvas) headsetCanvas.SetActive(false);
         if (photoTriggerImage.activeSelf)
             photoTriggerImage.SetActive(false);
         if (headsetTriggerImage.activeSelf)
