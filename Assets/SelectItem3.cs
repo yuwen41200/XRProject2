@@ -85,9 +85,11 @@ public class SelectItem3 : MonoBehaviour {
 
     private void OnDisable() {
         StopAllCoroutines();
-        var resetColor = _blackScreenImage.color;
-        resetColor.a = 0;
-        _blackScreenImage.color = resetColor;
+        if (_blackScreenImage) {
+            var resetColor = _blackScreenImage.color;
+            resetColor.a = 0;
+            _blackScreenImage.color = resetColor;
+        }
         _scene6ATriggerTimer = 0;
         _scene6BTriggerTimer = 0;
         _isTriggered = false;
