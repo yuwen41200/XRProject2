@@ -17,7 +17,7 @@ public class SelectItem1 : MonoBehaviour {
     private float _photoTriggerTimer;
     public GameObject photoTriggerImage;
 
-    public Vector3 headsetDirection = new Vector3(0.9f, -0.4f, -0.1f);
+    public Vector3 headsetDirection = new Vector3(-0.6f, -0.7f, 0.5f);
     public GameObject headsetCanvas;
     public Image headsetTriggerIcon;
     private float _headsetTriggerTimer;

@@ -64,6 +64,20 @@ crashlytics-build.properties
 # *.mp4
 # *.psd
 # *.kra
+T.mp4
+S1.mp4
+I1.mp4
+S2.mp4
+S3.mp4
+I2.mp4
+S4a.mp4
+S4b.mp4
+S4c.mp4
+S5.mp4
+I3.mp4
+S6a.mp4
+S6b.mp4
+C.mp4
 
 # macOS system file
 .DS_Store

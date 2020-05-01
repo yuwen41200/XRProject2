@@ -12,6 +12,7 @@ public class RotateCamera : MonoBehaviour {
 
     // Update is called once per frame
     private void Update() {
+        Debug.Log("Camera Direction: " + transform.forward);
         var eulers = new Vector3(-Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"), 0);
         eulers *= Time.deltaTime * unitPerSecond;
         transform.Rotate(eulers, Space.Self);

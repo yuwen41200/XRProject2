@@ -12,17 +12,17 @@ public class SelectItem2 : MonoBehaviour {
     public GameObject blackScreen;
     private Image _blackScreenImage;
 
-    public Vector3 scene4ADirection = new Vector3(0.8f, -0.6f, 0.3f);
+    public Vector3 scene4ADirection = new Vector3(-0.8f, 0.2f, 0.6f);
     public GameObject scene4ACanvas;
     public Image scene4ATriggerIcon;
     private float _scene4ATriggerTimer;
 
-    public Vector3 scene4BDirection = new Vector3(0.9f, -0.4f, -0.1f);
+    public Vector3 scene4BDirection = new Vector3(0.4f, -0.2f, -0.9f);
     public GameObject scene4BCanvas;
     public Image scene4BTriggerIcon;
     private float _scene4BTriggerTimer;
 
-    public Vector3 scene4CDirection = new Vector3(1.0f, -0.2f, -0.5f);
+    public Vector3 scene4CDirection = new Vector3(0.7f, 0.1f, 0.8f);
     public GameObject scene4CCanvas;
     public Image scene4CTriggerIcon;
     private float _scene4CTriggerTimer;
