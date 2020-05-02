@@ -270,4 +270,11 @@ public class StoryManager : MonoBehaviour {
         _videoEnded = true;
     }
 
+    // Press ESC to skip current video (no effect during interaction)
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            _videoEnded = true;
+        }
+    }
+
 }

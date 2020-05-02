@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class SelectItem1 : MonoBehaviour {
 
     public float triggerDuration = 2;
-    public float activeDuration = 10;
+    public float additionalActiveDuration = 3.5f;
     private bool _isTriggered;
     public bool goToScene2;
     public GameObject blackScreen;
@@ -21,7 +21,6 @@ public class SelectItem1 : MonoBehaviour {
     public GameObject headsetCanvas;
     public Image headsetTriggerIcon;
     private float _headsetTriggerTimer;
-    public GameObject headsetTriggerImage;
 
     private void Update() {
 
@@ -43,9 +42,7 @@ public class SelectItem1 : MonoBehaviour {
             _photoTriggerTimer += Time.deltaTime;
             photoTriggerIcon.fillAmount = _photoTriggerTimer / triggerDuration;
             if (_photoTriggerTimer > triggerDuration) {
-                photoTriggerImage.SetActive(true);
-                _isTriggered = true;
-                StartCoroutine(WaitAndDeactivate(photoTriggerImage));
+                StartCoroutine(TriggerItem(photoTriggerImage));
             }
         }
         else {
@@ -55,8 +52,35 @@ public class SelectItem1 : MonoBehaviour {
 
     }
 
-    private IEnumerator WaitAndDeactivate(GameObject triggerImage) {
-        yield return new WaitForSeconds(activeDuration);
+    private IEnumerator TriggerItem(GameObject triggerImage) {
+        var tImage = triggerImage.GetComponent<Image>();
+        var tAudio = triggerImage.GetComponent<AudioSource>();
+        Color newColor;
+
+        _isTriggered = true;
+        triggerImage.SetActive(true);
+        for (var alpha = 0f; alpha <= 1; alpha += 0.05f) {
+            newColor = tImage.color;
+            newColor.a = alpha;
+            tImage.color = newColor;
+            newColor = _blackScreenImage.color;
+            newColor.a = Mathf.Min(alpha, 0.5f);
+            _blackScreenImage.color = newColor;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        tAudio.Play();
+        yield return new WaitForSeconds(tAudio.clip.length + additionalActiveDuration);
+
+        for (var alpha = 1f; alpha >= 0; alpha -= 0.05f) {
+            newColor = tImage.color;
+            newColor.a = alpha;
+            tImage.color = newColor;
+            newColor = _blackScreenImage.color;
+            newColor.a = Mathf.Min(alpha, 0.5f);
+            _blackScreenImage.color = newColor;
+            yield return new WaitForSeconds(0.1f);
+        }
         triggerImage.SetActive(false);
         _isTriggered = false;
     }
