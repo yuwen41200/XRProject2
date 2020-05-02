@@ -1198,7 +1198,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &739481446
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1300,7 +1300,6 @@ MonoBehaviour:
   headsetDirection: {x: -0.6, y: -0.7, z: 0.5}
   headsetCanvas: {fileID: 977741233}
   headsetTriggerIcon: {fileID: 745635192}
-  headsetTriggerImage: {fileID: 1924971966}
 --- !u!114 &739481451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1494,7 +1493,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 23339675}
+  m_Camera: {fileID: 739481447}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -2006,7 +2005,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 107946, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 144230, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_IsActive
@@ -2424,7 +2423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 1
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1024, y: 1024}
@@ -2443,7 +2442,7 @@ Canvas:
   m_GameObject: {fileID: 1456747488}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 23339675}
   m_PlaneDistance: 1
   m_PixelPerfect: 0
@@ -3054,7 +3053,6 @@ MonoBehaviour:
   headsetDirection: {x: -0.6, y: -0.7, z: 0.5}
   headsetCanvas: {fileID: 977741233}
   headsetTriggerIcon: {fileID: 745635192}
-  headsetTriggerImage: {fileID: 1924971966}
 --- !u!114 &2112298158
 MonoBehaviour:
   m_ObjectHideFlags: 0
