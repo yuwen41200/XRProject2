@@ -352,7 +352,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -720, y: 180}
+  m_AnchoredPosition: {x: -720, y: 90}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &207257397
@@ -1090,7 +1090,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 633083409}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -900}
+  m_LocalPosition: {x: 0, y: 0, z: 630}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1396847265}
@@ -1100,7 +1100,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 400, y: -200}
+  m_AnchoredPosition: {x: 630, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &641881795
@@ -1394,13 +1394,13 @@ MonoBehaviour:
   goToScene4B: 0
   goToScene4C: 0
   blackScreen: {fileID: 155217998}
-  scene4ADirection: {x: -0.8, y: 0.2, z: 0.6}
+  scene4ADirection: {x: -0.8, y: 0.1, z: 0.6}
   scene4ACanvas: {fileID: 172869093}
   scene4ATriggerIcon: {fileID: 959285579}
-  scene4BDirection: {x: 0.4, y: -0.2, z: -0.9}
+  scene4BDirection: {x: 0.7, y: 0, z: 0.7}
   scene4BCanvas: {fileID: 633083409}
   scene4BTriggerIcon: {fileID: 1396847266}
-  scene4CDirection: {x: 0.7, y: 0.1, z: 0.8}
+  scene4CDirection: {x: 0.1, y: 0.2, z: -1}
   scene4CCanvas: {fileID: 1044894162}
   scene4CTriggerIcon: {fileID: 585331692}
 --- !u!114 &739481452
@@ -1909,7 +1909,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1044894162}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 720}
+  m_LocalPosition: {x: 0, y: 0, z: -900}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 585331691}
@@ -1919,7 +1919,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 630, y: 90}
+  m_AnchoredPosition: {x: 90, y: 180}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1279982081
@@ -3403,13 +3403,13 @@ MonoBehaviour:
   goToScene4B: 0
   goToScene4C: 0
   blackScreen: {fileID: 155217998}
-  scene4ADirection: {x: -0.8, y: 0.2, z: 0.6}
+  scene4ADirection: {x: -0.8, y: 0.1, z: 0.6}
   scene4ACanvas: {fileID: 172869093}
   scene4ATriggerIcon: {fileID: 959285579}
-  scene4BDirection: {x: 0.4, y: -0.2, z: -0.9}
+  scene4BDirection: {x: 0.7, y: 0, z: 0.7}
   scene4BCanvas: {fileID: 633083409}
   scene4BTriggerIcon: {fileID: 1396847266}
-  scene4CDirection: {x: 0.7, y: 0.1, z: 0.8}
+  scene4CDirection: {x: 0.1, y: 0.2, z: -1}
   scene4CCanvas: {fileID: 1044894162}
   scene4CTriggerIcon: {fileID: 585331692}
 --- !u!114 &2112298159
