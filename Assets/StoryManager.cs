@@ -23,6 +23,7 @@ public class StoryManager : MonoBehaviour {
     private byte _scene4A4B4CHaveBeenPlayed;
 
     private void Awake() {
+
         if (!vrCamera.activeInHierarchy) {
             vrCamera = debugCamera;
             debugCanvas.SetActive(true);
@@ -32,12 +33,25 @@ public class StoryManager : MonoBehaviour {
         _selectItem2 = vrCamera.GetComponent<SelectItem2>();
         _selectItem3 = vrCamera.GetComponent<SelectItem3>();
         _selectItem4 = vrCamera.GetComponent<SelectItem4>();
+
         _storyState = StoryState.Title;
         _videoEnded = false;
         _videoPlayer.clip = storyVideos[0];
         _videoPlayer.isLooping = false;
         _videoPlayer.loopPointReached += EndReached;
         _videoPlayer.Play();
+
+        _selectItem1.headsetCanvas.transform.LookAt(vrCamera.transform);
+        _selectItem1.photoCanvas.transform.LookAt(vrCamera.transform);
+        _selectItem1.phoneCanvas.transform.LookAt(vrCamera.transform);
+        _selectItem2.scene4ACanvas.transform.LookAt(vrCamera.transform);
+        _selectItem2.scene4BCanvas.transform.LookAt(vrCamera.transform);
+        _selectItem2.scene4CCanvas.transform.LookAt(vrCamera.transform);
+        _selectItem3.scene6ACanvas.transform.LookAt(vrCamera.transform);
+        _selectItem3.scene6BCanvas.transform.LookAt(vrCamera.transform);
+        _selectItem4.titleCanvas.transform.LookAt(vrCamera.transform);
+        _selectItem4.interaction3Canvas.transform.LookAt(vrCamera.transform);
+
     }
 
     private void LateUpdate() {

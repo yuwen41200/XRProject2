@@ -11,18 +11,18 @@ public class SelectItem1 : MonoBehaviour {
     public GameObject blackScreen;
     private Image _blackScreenImage;
 
-    public Vector3 headsetDirection = new Vector3(-0.6f, -0.7f, 0.5f);
+    public Vector3 headsetDirection = new Vector3(-0.7f, -0.6f, 0.5f);
     public GameObject headsetCanvas;
     public Image headsetTriggerIcon;
     private float _headsetTriggerTimer;
 
-    public Vector3 photoDirection = new Vector3(0.8f, -0.6f, 0.3f);
+    public Vector3 photoDirection = new Vector3(-0.5f, -0.9f, 0.1f);
     public GameObject photoCanvas;
     public Image photoTriggerIcon;
     private float _photoTriggerTimer;
     public GameObject photoTriggerImage;
 
-    public Vector3 phoneDirection = new Vector3(-0.6f, -0.7f, 0.5f);
+    public Vector3 phoneDirection = new Vector3(-0.4f, -0.8f, -0.5f);
     public GameObject phoneCanvas;
     public Image phoneTriggerIcon;
     private float _phoneTriggerTimer;
@@ -78,27 +78,27 @@ public class SelectItem1 : MonoBehaviour {
 
         _isTriggered = true;
         triggerImage.SetActive(true);
-        for (var alpha = 0f; alpha <= 1; alpha += 0.05f) {
+        for (var alpha = 0f; alpha <= 1.01f; alpha += 0.05f) {
             newColor = tImage.color;
             newColor.a = alpha;
             tImage.color = newColor;
             newColor = _blackScreenImage.color;
-            newColor.a = Mathf.Min(alpha, 0.5f);
+            newColor.a = Mathf.Min(alpha, 0.95f);
             _blackScreenImage.color = newColor;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
 
         tAudio.Play();
         yield return new WaitForSeconds(tAudio.clip.length + additionalActiveDuration);
 
-        for (var alpha = 1f; alpha >= 0; alpha -= 0.05f) {
+        for (var alpha = 1f; alpha >= -0.01f; alpha -= 0.05f) {
             newColor = tImage.color;
             newColor.a = alpha;
             tImage.color = newColor;
             newColor = _blackScreenImage.color;
-            newColor.a = Mathf.Min(alpha, 0.5f);
+            newColor.a = Mathf.Min(alpha, 0.95f);
             _blackScreenImage.color = newColor;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
         triggerImage.SetActive(false);
         _isTriggered = false;
@@ -107,11 +107,11 @@ public class SelectItem1 : MonoBehaviour {
 
     private IEnumerator FadeIn() {
         _isTriggered = true;
-        for (var alpha = 1f; alpha >= 0; alpha -= 0.025f) {
+        for (var alpha = 1f; alpha >= -0.01f; alpha -= 0.025f) {
             var newColor = _blackScreenImage.color;
             newColor.a = alpha;
             _blackScreenImage.color = newColor;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
         headsetCanvas.SetActive(true);
         photoCanvas.SetActive(true);
@@ -124,11 +124,11 @@ public class SelectItem1 : MonoBehaviour {
         if (headsetCanvas) headsetCanvas.SetActive(false);
         if (photoCanvas) photoCanvas.SetActive(false);
         if (phoneCanvas) phoneCanvas.SetActive(false);
-        for (var alpha = 0f; alpha <= 1; alpha += 0.025f) {
+        for (var alpha = 0f; alpha <= 1.01f; alpha += 0.025f) {
             var newColor = _blackScreenImage.color;
             newColor.a = alpha;
             _blackScreenImage.color = newColor;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
         goToScene2 = true;
     }

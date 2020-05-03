@@ -53,11 +53,11 @@ public class SelectItem3 : MonoBehaviour {
 
     private IEnumerator FadeIn() {
         _isTriggered = true;
-        for (var alpha = 1f; alpha >= 0; alpha -= 0.025f) {
+        for (var alpha = 1f; alpha >= -0.01f; alpha -= 0.025f) {
             var newColor = _blackScreenImage.color;
             newColor.a = alpha;
             _blackScreenImage.color = newColor;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
         scene6ACanvas.SetActive(true);
         scene6BCanvas.SetActive(true);
@@ -68,11 +68,11 @@ public class SelectItem3 : MonoBehaviour {
         _isTriggered = true;
         if (scene6ACanvas) scene6ACanvas.SetActive(false);
         if (scene6BCanvas) scene6BCanvas.SetActive(false);
-        for (var alpha = 0f; alpha <= 1; alpha += 0.025f) {
+        for (var alpha = 0f; alpha <= 1.01f; alpha += 0.025f) {
             var newColor = _blackScreenImage.color;
             newColor.a = alpha;
             _blackScreenImage.color = newColor;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
         if (goToX == "goToScene6A") goToScene6A = true;
         else if (goToX == "goToScene6B") goToScene6B = true;
