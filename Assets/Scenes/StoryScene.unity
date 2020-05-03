@@ -381,7 +381,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207257397}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -100}
+  m_LocalPosition: {x: 0, y: 0, z: 900}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1279982084}
@@ -391,7 +391,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 900, y: -400}
+  m_AnchoredPosition: {x: -180, y: -180}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &207257399
@@ -1423,10 +1423,10 @@ MonoBehaviour:
   goToTitle: 0
   goToInteraction3: 0
   blackScreen: {fileID: 155217998}
-  titleDirection: {x: 0.8, y: -0.6, z: 0.3}
+  titleDirection: {x: -0.8, y: -0.2, z: -0.6}
   titleCanvas: {fileID: 1037537443}
   titleTriggerIcon: {fileID: 1458733045}
-  interaction3Direction: {x: 0.9, y: -0.4, z: -0.1}
+  interaction3Direction: {x: -0.2, y: -0.2, z: 1}
   interaction3Canvas: {fileID: 207257397}
   interaction3TriggerIcon: {fileID: 1279982082}
 --- !u!114 &739481453
@@ -1445,10 +1445,10 @@ MonoBehaviour:
   goToScene6A: 0
   goToScene6B: 0
   blackScreen: {fileID: 155217998}
-  scene6ADirection: {x: 0.8, y: -0.6, z: 0.3}
+  scene6ADirection: {x: 1, y: 0.2, z: -0.2}
   scene6ACanvas: {fileID: 2018806784}
   scene6ATriggerIcon: {fileID: 326930425}
-  scene6BDirection: {x: 0.9, y: -0.4, z: -0.1}
+  scene6BDirection: {x: -1, y: 0.1, z: 0}
   scene6BCanvas: {fileID: 2114414311}
   scene6BTriggerIcon: {fileID: 11006926}
 --- !u!1 &745635190
@@ -1788,7 +1788,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1037537443}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 270}
+  m_LocalPosition: {x: 0, y: 0, z: -540}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1458733047}
@@ -1798,7 +1798,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 720, y: -540}
+  m_AnchoredPosition: {x: -720, y: -180}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1037537445
@@ -3490,7 +3490,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2018806784}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 270}
+  m_LocalPosition: {x: 0, y: 0, z: -180}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 326930424}
@@ -3500,7 +3500,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 720, y: -540}
+  m_AnchoredPosition: {x: 900, y: 180}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2053110417
@@ -3664,10 +3664,10 @@ MonoBehaviour:
   goToTitle: 0
   goToInteraction3: 0
   blackScreen: {fileID: 155217998}
-  titleDirection: {x: 0.8, y: -0.6, z: 0.3}
+  titleDirection: {x: -0.8, y: -0.2, z: -0.6}
   titleCanvas: {fileID: 1037537443}
   titleTriggerIcon: {fileID: 1458733045}
-  interaction3Direction: {x: 0.9, y: -0.4, z: -0.1}
+  interaction3Direction: {x: -0.2, y: -0.2, z: 1}
   interaction3Canvas: {fileID: 207257397}
   interaction3TriggerIcon: {fileID: 1279982082}
 --- !u!114 &2112298160
@@ -3686,10 +3686,10 @@ MonoBehaviour:
   goToScene6A: 0
   goToScene6B: 0
   blackScreen: {fileID: 155217998}
-  scene6ADirection: {x: 0.8, y: -0.6, z: 0.3}
+  scene6ADirection: {x: 1, y: 0.2, z: -0.2}
   scene6ACanvas: {fileID: 2018806784}
   scene6ATriggerIcon: {fileID: 326930425}
-  scene6BDirection: {x: 0.9, y: -0.4, z: -0.1}
+  scene6BDirection: {x: -1, y: 0.1, z: 0}
   scene6BCanvas: {fileID: 2114414311}
   scene6BTriggerIcon: {fileID: 11006926}
 --- !u!1 &2114414311
@@ -3761,7 +3761,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2114414311}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -100}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 11006925}
@@ -3771,6 +3771,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 900, y: -400}
+  m_AnchoredPosition: {x: -900, y: 90}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}

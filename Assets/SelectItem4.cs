@@ -11,12 +11,12 @@ public class SelectItem4 : MonoBehaviour {
     public GameObject blackScreen;
     private Image _blackScreenImage;
 
-    public Vector3 titleDirection = new Vector3(0.8f, -0.6f, 0.3f);
+    public Vector3 titleDirection = new Vector3(-0.8f, -0.2f, -0.6f);
     public GameObject titleCanvas;
     public Image titleTriggerIcon;
     private float _titleTriggerTimer;
 
-    public Vector3 interaction3Direction = new Vector3(0.9f, -0.4f, -0.1f);
+    public Vector3 interaction3Direction = new Vector3(-0.2f, -0.2f, 1.0f);
     public GameObject interaction3Canvas;
     public Image interaction3TriggerIcon;
     private float _interaction3TriggerTimer;
