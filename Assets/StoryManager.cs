@@ -47,6 +47,7 @@ public class StoryManager : MonoBehaviour {
         _selectItem2.scene4ACanvas.transform.LookAt(vrCamera.transform);
         _selectItem2.scene4BCanvas.transform.LookAt(vrCamera.transform);
         _selectItem2.scene4CCanvas.transform.LookAt(vrCamera.transform);
+        _selectItem2.scene5Canvas.transform.LookAt(vrCamera.transform);
         _selectItem3.scene6ACanvas.transform.LookAt(vrCamera.transform);
         _selectItem3.scene6BCanvas.transform.LookAt(vrCamera.transform);
         _selectItem4.titleCanvas.transform.LookAt(vrCamera.transform);
@@ -146,7 +147,7 @@ public class StoryManager : MonoBehaviour {
                     _videoPlayer.Play();
                     _scene4A4B4CHaveBeenPlayed |= 0b100;
                 }
-                else if (_scene4A4B4CHaveBeenPlayed == 0b111) {
+                else if (_selectItem2.goToScene5) {
                     _selectItem2.enabled = false;
                     _storyState = StoryState.Scene5;
                     _videoEnded = false;

@@ -9,6 +9,7 @@ public class SelectItem2 : MonoBehaviour {
     public bool goToScene4A;
     public bool goToScene4B;
     public bool goToScene4C;
+    public bool goToScene5;
     public GameObject blackScreen;
     private Image _blackScreenImage;
 
@@ -26,6 +27,11 @@ public class SelectItem2 : MonoBehaviour {
     public GameObject scene4CCanvas;
     public Image scene4CTriggerIcon;
     private float _scene4CTriggerTimer;
+
+    public Vector3 scene5Direction = new Vector3(0.0f, -1.0f, 0.0f);
+    public GameObject scene5Canvas;
+    public Image scene5TriggerIcon;
+    private float _scene5TriggerTimer;
 
     private void Update() {
 
@@ -67,6 +73,18 @@ public class SelectItem2 : MonoBehaviour {
             scene4CTriggerIcon.fillAmount = 0;
         }
 
+        if (!_isTriggered && Vector3.Dot(cameraDirection, scene5Direction) > 0.97) {
+            _scene5TriggerTimer += Time.deltaTime;
+            scene5TriggerIcon.fillAmount = _scene5TriggerTimer / triggerDuration;
+            if (_scene5TriggerTimer > triggerDuration) {
+                StartCoroutine(FadeOut("goToScene5"));
+            }
+        }
+        else {
+            _scene5TriggerTimer = 0;
+            scene5TriggerIcon.fillAmount = 0;
+        }
+
     }
 
     private IEnumerator FadeIn() {
@@ -80,6 +98,7 @@ public class SelectItem2 : MonoBehaviour {
         scene4ACanvas.SetActive(true);
         scene4BCanvas.SetActive(true);
         scene4CCanvas.SetActive(true);
+        scene5Canvas.SetActive(true);
         _isTriggered = false;
     }
 
@@ -88,6 +107,7 @@ public class SelectItem2 : MonoBehaviour {
         if (scene4ACanvas) scene4ACanvas.SetActive(false);
         if (scene4BCanvas) scene4BCanvas.SetActive(false);
         if (scene4CCanvas) scene4CCanvas.SetActive(false);
+        if (scene5Canvas) scene5Canvas.SetActive(false);
         for (var alpha = 0f; alpha <= 1.01f; alpha += 0.025f) {
             var newColor = _blackScreenImage.color;
             newColor.a = alpha;
@@ -97,6 +117,7 @@ public class SelectItem2 : MonoBehaviour {
         if (goToX == "goToScene4A") goToScene4A = true;
         else if (goToX == "goToScene4B") goToScene4B = true;
         else if (goToX == "goToScene4C") goToScene4C = true;
+        else if (goToX == "goToScene5") goToScene5 = true;
     }
 
     private void OnEnable() {
@@ -114,10 +135,12 @@ public class SelectItem2 : MonoBehaviour {
         _scene4ATriggerTimer = 0;
         _scene4BTriggerTimer = 0;
         _scene4CTriggerTimer = 0;
+        _scene5TriggerTimer = 0;
         _isTriggered = false;
         goToScene4A = false;
         goToScene4B = false;
         goToScene4C = false;
+        goToScene5 = false;
     }
 
 }
