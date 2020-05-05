@@ -14,39 +14,50 @@ public class SelectItem3 : MonoBehaviour {
     public Vector3 scene6ADirection = new Vector3(1.0f, 0.2f, -0.2f);
     public GameObject scene6ACanvas;
     public Image scene6ATriggerIcon;
+    public Image scene6ATriggerTopIcon;
     private float _scene6ATriggerTimer;
 
     public Vector3 scene6BDirection = new Vector3(-1.0f, 0.1f, 0.0f);
     public GameObject scene6BCanvas;
     public Image scene6BTriggerIcon;
+    public Image scene6BTriggerTopIcon;
     private float _scene6BTriggerTimer;
 
     private void Update() {
 
         Vector3 cameraDirection = transform.forward;
+        Vector3 angles;
 
         if (!_isTriggered && Vector3.Dot(cameraDirection, scene6ADirection) > 0.97) {
             _scene6ATriggerTimer += Time.deltaTime;
             scene6ATriggerIcon.fillAmount = _scene6ATriggerTimer / triggerDuration;
+            angles = new Vector3(0, 0, 90 - _scene6ATriggerTimer / triggerDuration * 360);
+            scene6ATriggerTopIcon.transform.localEulerAngles = angles;
             if (_scene6ATriggerTimer > triggerDuration) {
                 StartCoroutine(FadeOut("goToScene6A"));
             }
         }
         else {
-            _scene6ATriggerTimer = 0;
-            scene6ATriggerIcon.fillAmount = 0;
+            _scene6ATriggerTimer = Mathf.Max(_scene6ATriggerTimer - Time.deltaTime, 0);
+            scene6ATriggerIcon.fillAmount = _scene6ATriggerTimer / triggerDuration;
+            angles = new Vector3(0, 0, 90 - _scene6ATriggerTimer / triggerDuration * 360);
+            scene6ATriggerTopIcon.transform.localEulerAngles = angles;
         }
 
         if (!_isTriggered && Vector3.Dot(cameraDirection, scene6BDirection) > 0.97) {
             _scene6BTriggerTimer += Time.deltaTime;
             scene6BTriggerIcon.fillAmount = _scene6BTriggerTimer / triggerDuration;
+            angles = new Vector3(0, 0, 90 - _scene6BTriggerTimer / triggerDuration * 360);
+            scene6BTriggerTopIcon.transform.localEulerAngles = angles;
             if (_scene6BTriggerTimer > triggerDuration) {
                 StartCoroutine(FadeOut("goToScene6B"));
             }
         }
         else {
-            _scene6BTriggerTimer = 0;
-            scene6BTriggerIcon.fillAmount = 0;
+            _scene6BTriggerTimer = Mathf.Max(_scene6BTriggerTimer - Time.deltaTime, 0);
+            scene6BTriggerIcon.fillAmount = _scene6BTriggerTimer / triggerDuration;
+            angles = new Vector3(0, 0, 90 - _scene6BTriggerTimer / triggerDuration * 360);
+            scene6BTriggerTopIcon.transform.localEulerAngles = angles;
         }
 
     }

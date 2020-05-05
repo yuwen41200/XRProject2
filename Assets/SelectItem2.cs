@@ -16,73 +16,94 @@ public class SelectItem2 : MonoBehaviour {
     public Vector3 scene4ADirection = new Vector3(-0.8f, 0.1f, 0.6f);
     public GameObject scene4ACanvas;
     public Image scene4ATriggerIcon;
+    public Image scene4ATriggerTopIcon;
     private float _scene4ATriggerTimer;
 
     public Vector3 scene4BDirection = new Vector3(0.7f, 0.0f, 0.7f);
     public GameObject scene4BCanvas;
     public Image scene4BTriggerIcon;
+    public Image scene4BTriggerTopIcon;
     private float _scene4BTriggerTimer;
 
     public Vector3 scene4CDirection = new Vector3(0.1f, 0.2f, -1.0f);
     public GameObject scene4CCanvas;
     public Image scene4CTriggerIcon;
+    public Image scene4CTriggerTopIcon;
     private float _scene4CTriggerTimer;
 
     public Vector3 scene5Direction = new Vector3(0.0f, -1.0f, 0.0f);
     public GameObject scene5Canvas;
     public Image scene5TriggerIcon;
+    public Image scene5TriggerTopIcon;
     private float _scene5TriggerTimer;
 
     private void Update() {
 
         Vector3 cameraDirection = transform.forward;
+        Vector3 angles;
 
         if (!_isTriggered && Vector3.Dot(cameraDirection, scene4ADirection) > 0.97) {
             _scene4ATriggerTimer += Time.deltaTime;
             scene4ATriggerIcon.fillAmount = _scene4ATriggerTimer / triggerDuration;
+            angles = new Vector3(0, 0, 90 - _scene4ATriggerTimer / triggerDuration * 360);
+            scene4ATriggerTopIcon.transform.localEulerAngles = angles;
             if (_scene4ATriggerTimer > triggerDuration) {
                 StartCoroutine(FadeOut("goToScene4A"));
             }
         }
         else {
-            _scene4ATriggerTimer = 0;
-            scene4ATriggerIcon.fillAmount = 0;
+            _scene4ATriggerTimer = Mathf.Max(_scene4ATriggerTimer - Time.deltaTime, 0);
+            scene4ATriggerIcon.fillAmount = _scene4ATriggerTimer / triggerDuration;
+            angles = new Vector3(0, 0, 90 - _scene4ATriggerTimer / triggerDuration * 360);
+            scene4ATriggerTopIcon.transform.localEulerAngles = angles;
         }
 
         if (!_isTriggered && Vector3.Dot(cameraDirection, scene4BDirection) > 0.97) {
             _scene4BTriggerTimer += Time.deltaTime;
             scene4BTriggerIcon.fillAmount = _scene4BTriggerTimer / triggerDuration;
+            angles = new Vector3(0, 0, 90 - _scene4BTriggerTimer / triggerDuration * 360);
+            scene4BTriggerTopIcon.transform.localEulerAngles = angles;
             if (_scene4BTriggerTimer > triggerDuration) {
                 StartCoroutine(FadeOut("goToScene4B"));
             }
         }
         else {
-            _scene4BTriggerTimer = 0;
-            scene4BTriggerIcon.fillAmount = 0;
+            _scene4BTriggerTimer = Mathf.Max(_scene4BTriggerTimer - Time.deltaTime, 0);
+            scene4BTriggerIcon.fillAmount = _scene4BTriggerTimer / triggerDuration;
+            angles = new Vector3(0, 0, 90 - _scene4BTriggerTimer / triggerDuration * 360);
+            scene4BTriggerTopIcon.transform.localEulerAngles = angles;
         }
 
         if (!_isTriggered && Vector3.Dot(cameraDirection, scene4CDirection) > 0.97) {
             _scene4CTriggerTimer += Time.deltaTime;
             scene4CTriggerIcon.fillAmount = _scene4CTriggerTimer / triggerDuration;
+            angles = new Vector3(0, 0, 90 - _scene4CTriggerTimer / triggerDuration * 360);
+            scene4CTriggerTopIcon.transform.localEulerAngles = angles;
             if (_scene4CTriggerTimer > triggerDuration) {
                 StartCoroutine(FadeOut("goToScene4C"));
             }
         }
         else {
-            _scene4CTriggerTimer = 0;
-            scene4CTriggerIcon.fillAmount = 0;
+            _scene4CTriggerTimer = Mathf.Max(_scene4CTriggerTimer - Time.deltaTime, 0);
+            scene4CTriggerIcon.fillAmount = _scene4CTriggerTimer / triggerDuration;
+            angles = new Vector3(0, 0, 90 - _scene4CTriggerTimer / triggerDuration * 360);
+            scene4CTriggerTopIcon.transform.localEulerAngles = angles;
         }
 
         if (!_isTriggered && Vector3.Dot(cameraDirection, scene5Direction) > 0.97) {
             _scene5TriggerTimer += Time.deltaTime;
             scene5TriggerIcon.fillAmount = _scene5TriggerTimer / triggerDuration;
+            angles = new Vector3(0, 0, 90 - _scene5TriggerTimer / triggerDuration * 360);
+            scene5TriggerTopIcon.transform.localEulerAngles = angles;
             if (_scene5TriggerTimer > triggerDuration) {
                 StartCoroutine(FadeOut("goToScene5"));
             }
         }
         else {
-            _scene5TriggerTimer = 0;
-            scene5TriggerIcon.fillAmount = 0;
+            _scene5TriggerTimer = Mathf.Max(_scene5TriggerTimer - Time.deltaTime, 0);
+            scene5TriggerIcon.fillAmount = _scene5TriggerTimer / triggerDuration;
+            angles = new Vector3(0, 0, 90 - _scene5TriggerTimer / triggerDuration * 360);
+            scene5TriggerTopIcon.transform.localEulerAngles = angles;
         }
 
     }

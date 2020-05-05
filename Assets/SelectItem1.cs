@@ -14,58 +14,74 @@ public class SelectItem1 : MonoBehaviour {
     public Vector3 headsetDirection = new Vector3(-0.7f, -0.6f, 0.5f);
     public GameObject headsetCanvas;
     public Image headsetTriggerIcon;
+    public Image headsetTriggerTopIcon;
     private float _headsetTriggerTimer;
 
     public Vector3 photoDirection = new Vector3(-0.5f, -0.9f, 0.1f);
     public GameObject photoCanvas;
     public Image photoTriggerIcon;
+    public Image photoTriggerTopIcon;
     private float _photoTriggerTimer;
     public GameObject photoTriggerImage;
 
     public Vector3 phoneDirection = new Vector3(-0.4f, -0.8f, -0.5f);
     public GameObject phoneCanvas;
     public Image phoneTriggerIcon;
+    public Image phoneTriggerTopIcon;
     private float _phoneTriggerTimer;
     public GameObject phoneTriggerImage;
 
     private void Update() {
 
         Vector3 cameraDirection = transform.forward;
+        Vector3 angles;
 
         if (!_isTriggered && Vector3.Dot(cameraDirection, headsetDirection) > 0.97) {
             _headsetTriggerTimer += Time.deltaTime;
             headsetTriggerIcon.fillAmount = _headsetTriggerTimer / triggerDuration;
+            angles = new Vector3(0, 0, 90 - _headsetTriggerTimer / triggerDuration * 360);
+            headsetTriggerTopIcon.transform.localEulerAngles = angles;
             if (_headsetTriggerTimer > triggerDuration) {
                 StartCoroutine(FadeOut());
             }
         }
         else {
-            _headsetTriggerTimer = 0;
-            headsetTriggerIcon.fillAmount = 0;
+            _headsetTriggerTimer = Mathf.Max(_headsetTriggerTimer - Time.deltaTime, 0);
+            headsetTriggerIcon.fillAmount = _headsetTriggerTimer / triggerDuration;
+            angles = new Vector3(0, 0, 90 - _headsetTriggerTimer / triggerDuration * 360);
+            headsetTriggerTopIcon.transform.localEulerAngles = angles;
         }
 
         if (!_isTriggered && Vector3.Dot(cameraDirection, photoDirection) > 0.97) {
             _photoTriggerTimer += Time.deltaTime;
             photoTriggerIcon.fillAmount = _photoTriggerTimer / triggerDuration;
+            angles = new Vector3(0, 0, 90 - _photoTriggerTimer / triggerDuration * 360);
+            photoTriggerTopIcon.transform.localEulerAngles = angles;
             if (_photoTriggerTimer > triggerDuration) {
                 StartCoroutine(TriggerItem(photoTriggerImage));
             }
         }
         else {
-            _photoTriggerTimer = 0;
-            photoTriggerIcon.fillAmount = 0;
+            _photoTriggerTimer = Mathf.Max(_photoTriggerTimer - Time.deltaTime, 0);
+            photoTriggerIcon.fillAmount = _photoTriggerTimer / triggerDuration;
+            angles = new Vector3(0, 0, 90 - _photoTriggerTimer / triggerDuration * 360);
+            photoTriggerTopIcon.transform.localEulerAngles = angles;
         }
 
         if (!_isTriggered && Vector3.Dot(cameraDirection, phoneDirection) > 0.97) {
             _phoneTriggerTimer += Time.deltaTime;
             phoneTriggerIcon.fillAmount = _phoneTriggerTimer / triggerDuration;
+            angles = new Vector3(0, 0, 90 - _phoneTriggerTimer / triggerDuration * 360);
+            phoneTriggerTopIcon.transform.localEulerAngles = angles;
             if (_phoneTriggerTimer > triggerDuration) {
                 StartCoroutine(TriggerItem(phoneTriggerImage));
             }
         }
         else {
-            _phoneTriggerTimer = 0;
-            phoneTriggerIcon.fillAmount = 0;
+            _phoneTriggerTimer = Mathf.Max(_phoneTriggerTimer - Time.deltaTime, 0);
+            phoneTriggerIcon.fillAmount = _phoneTriggerTimer / triggerDuration;
+            angles = new Vector3(0, 0, 90 - _phoneTriggerTimer / triggerDuration * 360);
+            phoneTriggerTopIcon.transform.localEulerAngles = angles;
         }
 
     }
