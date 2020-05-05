@@ -2,7 +2,7 @@
 using UnityEngine.Video;
 
 public enum StoryState {
-    Title, Scene1, Interaction1, Scene2, Scene3,
+    Title, Scene1, Interaction1, Scene2, Scene3, Interaction1Revisited,
     Interaction2, Scene4A, Scene4B, Scene4C, Scene5,
     Interaction3, Scene6A, Scene6B, Credits
 }
@@ -106,6 +106,19 @@ public class StoryManager : MonoBehaviour {
 
             case StoryState.Scene3:
                 if (_videoEnded) {
+                    _storyState = StoryState.Interaction1Revisited;
+                    _videoEnded = false;
+                    _videoPlayer.clip = storyVideos[2];
+                    _videoPlayer.isLooping = true;
+                    _videoPlayer.loopPointReached += EndReached;
+                    _videoPlayer.Play();
+                    _selectItem1.enabled = true;
+                }
+                break;
+
+            case StoryState.Interaction1Revisited:
+                if (_selectItem1.goToScene2) {
+                    _selectItem1.enabled = false;
                     _storyState = StoryState.Interaction2;
                     _videoEnded = false;
                     _videoPlayer.clip = storyVideos[5];
