@@ -66,6 +66,7 @@ public class StoryManager : MonoBehaviour {
                     _videoPlayer.isLooping = false;
                     _videoPlayer.loopPointReached += EndReached;
                     _videoPlayer.Play();
+                    TurnAround();
                 }
                 break;
 
@@ -265,7 +266,6 @@ public class StoryManager : MonoBehaviour {
                     _videoPlayer.loopPointReached += EndReached;
                     _videoPlayer.Play();
                     _selectItem4.enabled = true;
-                    TurnAround();
                 }
                 break;
 
@@ -278,6 +278,7 @@ public class StoryManager : MonoBehaviour {
                     _videoPlayer.isLooping = false;
                     _videoPlayer.loopPointReached += EndReached;
                     _videoPlayer.Play();
+                    TurnAround(true);
                 }
                 else if (_selectItem4.goToInteraction3) {
                     _selectItem4.enabled = false;
@@ -302,10 +303,13 @@ public class StoryManager : MonoBehaviour {
         _videoEnded = true;
     }
 
-    private void TurnAround() {
+    private void TurnAround(bool replay = false) {
         var player = vrCamera.transform.root;
         var angles = player.localEulerAngles;
-        angles.y -= 180;
+        if (replay)
+            angles.y = 90;
+        else
+            angles.y -= 180;
         player.localEulerAngles = angles;
     }
 
