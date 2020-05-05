@@ -229,6 +229,7 @@ public class StoryManager : MonoBehaviour {
                     _videoPlayer.isLooping = false;
                     _videoPlayer.loopPointReached += EndReached;
                     _videoPlayer.Play();
+                    TurnAround();
                 }
                 else if (_selectItem3.goToScene6B) {
                     _selectItem3.enabled = false;
@@ -238,6 +239,7 @@ public class StoryManager : MonoBehaviour {
                     _videoPlayer.isLooping = false;
                     _videoPlayer.loopPointReached += EndReached;
                     _videoPlayer.Play();
+                    TurnAround();
                 }
                 break;
 
@@ -250,6 +252,7 @@ public class StoryManager : MonoBehaviour {
                     _videoPlayer.loopPointReached += EndReached;
                     _videoPlayer.Play();
                     _selectItem4.enabled = true;
+                    TurnAround();
                 }
                 break;
 
@@ -262,6 +265,7 @@ public class StoryManager : MonoBehaviour {
                     _videoPlayer.loopPointReached += EndReached;
                     _videoPlayer.Play();
                     _selectItem4.enabled = true;
+                    TurnAround();
                 }
                 break;
 
@@ -296,6 +300,13 @@ public class StoryManager : MonoBehaviour {
 
     private void EndReached(VideoPlayer vp) {
         _videoEnded = true;
+    }
+
+    private void TurnAround() {
+        var player = vrCamera.transform.root;
+        var angles = player.localEulerAngles;
+        angles.y -= 180;
+        player.localEulerAngles = angles;
     }
 
     // Press ESC to skip current video (no effect during interaction)
