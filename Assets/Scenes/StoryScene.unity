@@ -1895,7 +1895,7 @@ MonoBehaviour:
   goToScene6A: 0
   goToScene6B: 0
   blackScreen: {fileID: 155217998}
-  scene6ADirection: {x: 1, y: 0.2, z: -0.2}
+  scene6ADirection: {x: 0.7, y: 0.1, z: -0.7}
   scene6ACanvas: {fileID: 2018806784}
   scene6ATriggerIcon: {fileID: 326930425}
   scene6ATriggerTopIcon: {fileID: 1862979133}
@@ -3850,7 +3850,7 @@ MonoBehaviour:
   - {fileID: 32900000, guid: 29249391d12e54cfca6afd3d14727d20, type: 3}
   - {fileID: 32900000, guid: f825c33f7647e47318c18dc9dbcc4996, type: 3}
   - {fileID: 32900000, guid: 8d4426616e5695f4e96cbbe96d83f40f, type: 3}
-  - {fileID: 32900000, guid: f8a1a880662d5495db14af0ed6781a57, type: 3}
+  - {fileID: 32900000, guid: 62f6619ad768048f191753ba6c578634, type: 3}
   - {fileID: 32900000, guid: 021fbebc6e98946a083df37faaad27f7, type: 3}
   - {fileID: 32900000, guid: 24fbc5dece7a640f094e694c8c58892d, type: 3}
   - {fileID: 32900000, guid: 9823f920595fb0349b05cc17e2a56467, type: 3}
@@ -4312,7 +4312,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2018806784}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -180}
+  m_LocalPosition: {x: 0, y: 0, z: -630}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 326930424}
@@ -4323,7 +4323,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 900, y: 180}
+  m_AnchoredPosition: {x: 630, y: 90}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2053110417
@@ -4519,7 +4519,7 @@ MonoBehaviour:
   goToScene6A: 0
   goToScene6B: 0
   blackScreen: {fileID: 155217998}
-  scene6ADirection: {x: 1, y: 0.2, z: -0.2}
+  scene6ADirection: {x: 0.7, y: 0.1, z: -0.7}
   scene6ACanvas: {fileID: 2018806784}
   scene6ATriggerIcon: {fileID: 326930425}
   scene6ATriggerTopIcon: {fileID: 1862979133}

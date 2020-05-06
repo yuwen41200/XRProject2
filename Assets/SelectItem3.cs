@@ -11,7 +11,7 @@ public class SelectItem3 : MonoBehaviour {
     public GameObject blackScreen;
     private Image _blackScreenImage;
 
-    public Vector3 scene6ADirection = new Vector3(1.0f, 0.2f, -0.2f);
+    public Vector3 scene6ADirection = new Vector3(0.7f, 0.1f, -0.7f);
     public GameObject scene6ACanvas;
     public Image scene6ATriggerIcon;
     public Image scene6ATriggerTopIcon;
